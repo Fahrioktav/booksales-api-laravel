@@ -18,11 +18,9 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->integer('stock');
             $table->string('cover_photo', 255)->nullable();
-            $table->unsignedBigInteger('genre_id')->nullable();
-            $table->unsignedBigInteger('author_id')->nullable();
-            $table->timestamps();
             $table->foreign('genre_id')->references('id')->on('genres')->onDelete('cascade');
             $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
